@@ -1,28 +1,20 @@
 'use strict'
 
-const name = 'Ilya'
-const greeting = 'Hello'
 
-const message = `${name}, ${greeting}!`
+const year = 2026
 
-console.log(message)
+if (year === 2026) {
+  console.log(`Сейчас ${year} год!`)
+} else {
+  console.log('Сейчас не 2026 год (((')
+}
 
-const a = 400000
-const b = 4000
+const result = null || undefined
 
-const sum = `Сумма равна = ${a + b}`
+console.log(result)
 
-console.log(sum)
+const age = 17
 
-const a = 1_000 + 1_0
+const isYoung = age < 18
 
-console.log(a)
-
-console.log(
-  typeof a
-)
-
-const b = 100
-
-console.log(Boolean(b))
-console.log(typeof String(b))
+isYoung && console.log('Покажите паспорт')
