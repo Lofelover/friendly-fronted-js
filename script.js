@@ -1,20 +1,12 @@
 'use strict'
 
 
-const year = 2026
+// alert('Lol')
 
-if (year === 2026) {
-  console.log(`Сейчас ${year} год!`)
+const userAge = prompt('Сколько тебе лет?')
+
+if (userAge < 18) {
+  alert('Доступ запрещен')
 } else {
-  console.log('Сейчас не 2026 год (((')
+  alert('Доступ разрешен')
 }
-
-const result = null || undefined
-
-console.log(result)
-
-const age = 17
-
-const isYoung = age < 18
-
-isYoung && console.log('Покажите паспорт')
