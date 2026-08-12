@@ -1,21 +1,17 @@
 'use strict'
 
-const user = {
-    name: "Иван",
-    age: 30,
-    address: {
-        city: "СПБ",
-        street: "Невский"
-    }
-};
 
-const userCopy = { ...user }
+const chainCalculator = {
+    value: 0,
+    add(n) {
+        this.value += n
+        return this
+    },
+    substract(n) {
+        this.value -= n
+        return this
+    },
+}
 
-
-userCopy.name = 'Петр'
-
-userCopy.address.city = "Москва"
-
-console.log('userCopy: ', userCopy)
-console.log('user: ', user)
-
+chainCalculator.add(5).substract(2)
+console.log(chainCalculator.value)
