@@ -1,86 +1,138 @@
 'use strict'
 
-// const str = "JavaScript"
+// const fruits = ['яблоко', 'банан', 'апельсин']
 
-// console.log(str.length)
-// console.log(str[0])
-// console.log(str[ str.length - 1])
-// console.log(str.at(-1))
-// console.log(str.at(10))
-// console.log(str[10])
+// console.log(fruits[0], fruits[1], fruits[2])
+
+// fruits[1] = 'груша'
+
+// console.log(fruits)
+
+// const arr = []
+
+// arr[5] = 'привет'
+
+// console.log(arr, arr.length)
+
+// const numbers = [10, 20, 30, 40, 50];
+
+// console.log(numbers.length)
+// console.log(numbers[numbers.length - 1])
+// console.log(numbers.at(-1))
+
+// const stack = [1, 2, 3]
+
+// stack.push(4)
+// stack.push(5)
+// const lastElement = stack.pop()
+
+// console.log(lastElement)
+// console.log(stack)
 
 
-// const input = " приВЕТ МИР! ";
+// const queue = [10, 20, 30];
 
-// console.log(input.trim())
-// console.log(input.trim().toLowerCase())
-// console.log(input.trim().toUpperCase())
-// console.log(input.trimStart().trimEnd())
+// queue.unshift(5)
+// queue.unshift(0)
+// const lastElementofQueue = queue.shift()
 
-// const text = "Я люблю JavaScript, JavaScript — это круто!"
+// console.log(lastElementofQueue)
+// console.log(queue)
 
-// console.log(text.indexOf('JavaScript', text.indexOf('JavaScript') + 1))
-// console.log(text.includes('круто'))
-// console.log(text.startsWith('Я'))
-// console.log(text.endsWith('!'))
+// const letters = ['a', 'b'];
 
-// const phrase = "apple, banana, apple, orange"
+// letters.push('c')
+// letters.unshift('z')
 
-// const indexApple = phrase.indexOf('apple')
+// letters.pop()
+// letters.shift()
 
-// console.log(phrase.indexOf('apple', indexApple + 1))
-// console.log(phrase.includes('banana', 10))
+// console.log(letters)
 
-// const str = "Hello, World!";
+// const items = ["книга", "ручка", "карандаш"];
 
-// console.log(str.substring(0, 5))
-// console.log(str.slice(0, 5))
+// console.log(items.toString())
+// console.log(items.join())
+// console.log(items.join(' | '))
 
-// console.log(str.substring(7))
-// console.log(str.slice(7))
+// const str = "Иван,Петр,Мария,Ольга";
 
-// console.log(str.substring(-6))
-// console.log(str.slice(-6))
+// const stringToArray = str.split(',')
 
-// const input = 'ha'
+// console.log(stringToArray)
 
-// console.log(input.repeat(3))
+// const arrayToString = stringToArray.join(' / ')
 
-// const msg = "Кот — домашнее животное. Кот любит спать."
+// console.log(arrayToString)
 
-// console.log(msg.replace('Кот', 'Пёс'))
-// console.log(msg.replaceAll('Кот', 'Пёс'))
+// const original = [1, 2, 3];
 
-// const csv = "Иван,Петр,Мария,Ольга"
+// const copyArray = [...original]
 
-// console.log(csv.split(','))
-// console.log(csv.split(' '))
-// console.log(csv.split(''))
+// copyArray[1] = 100
 
-// console.log(csv.split(',').join(';'))
+// console.log(original)
+// console.log(copyArray)
 
-// let s = "hello"
+// const colors = ["красный", "зеленый", "синий", "желтый"];
 
-// console.log(s.slice(0, 1) + 'x' + s.slice(2))
+// const colorsCopy = colors.slice()
+// const colorsCopy1 = colors.slice(1, 3)
+// const colorsCopy2 = colors.slice(-2)
 
-function ValidateEmail(email) {
-  const clearEmail = email.trim()
+// console.log(colors)
+// console.log(colorsCopy1)
+// console.log(colorsCopy2)
 
-  if (!clearEmail) {
-    return 'Ошибка'
-  }
+// const arr1 = [1, 2, 3];
+// const arr2 = [4, 5, 6];
 
-  if (!clearEmail.includes('@'))
-    return 'Ошибка'
+// const newArray = [...arr1, ...arr2]
 
-  if (clearEmail.startsWith('@'))
-    return 'Ошибка'
+// console.log(newArray)
 
-  if (clearEmail.endsWith('.com') || clearEmail.endsWith('.ru')) {
-    return 'Ошибка'
-  }
+// const newArray1 = arr1.concat(arr2)
 
-  return true
-}
+// console.log(newArray1)
 
-ValidateEmail('markovilia007@gmail.com')
+// const fruits = ["яблоко", "банан"];
+
+// const newArray = fruits.concat('апельсин', 'груша')
+
+// console.log(newArray)
+
+
+// const arraysEqual = (arr1, arr2) => {
+//   if (arr1.length !== arr2.length) {
+//     return false
+//   }
+
+//   for (let i = 0; i < arr1.length; i++) {
+//     const value1 = arr1[i]
+//     const value2 = arr2[i]
+
+//     if (value1 !== value2) {
+//       return false
+//     } else {
+//       continue
+//     }
+//   }
+
+//   return true
+// }
+
+// const array = [1, 2, 3]
+// const array1 = [1, 2, 3]
+// const array2 = [1, 2, 4]
+
+// console.log(arraysEqual(array, array1))
+// console.log(arraysEqual(array, array2))
+
+
+console.log(Array.isArray([1, 2, 3]))
+console.log(Array.isArray({ name: "Тест" }))
+console.log(Array.isArray("строка"))
+console.log(Array.isArray(null))
+console.log(Array.isArray([]))
+
+console.log(typeof [1, 2, 3])
