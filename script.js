@@ -1,157 +1,223 @@
 'use strict'
 
-// // 2.1
-// const fruits = ["яблоко", "банан", "апельсин", "груша"];
+// 1.1
 
-// fruits.forEach((fruit, index) => console.log(`${index}: ${fruit}`))
+// const user = {
+//   name: "Анна",
+//   age: 25,
+//   city: "Москва",
+//   isAdmin: false
+// };
 
-// // 2.2
-// const nums = [10, 20, 30, 40];
+// for (const key in user) {
+//   console.log(key)
+// }
 
-// let sum = 0
+// for (const key in user) {
+//   console.log(user[key])
+// }
 
-// nums.forEach((number) => { sum += number})
+// for (const key in user) {
+//   console.log(`${key}: ${user[key]}`)
+// }
 
-// console.log(sum)
+// 1.2
+
+// const user = {
+//   name: "Анна",
+//   age: 25,
+//   city: "Москва",
+//   isAdmin: false
+// };
+
+// const userKeys = Object.keys(user)
+// const userValues = Object.values(user)
+// const userEntries = Object.entries(user)
+
+
+// console.log(userKeys)
+// console.log(userValues)
+// console.log(userEntries)
+
+// // 1.3
+
+// for (const key of userEntries) {
+//   console.log(`${key[0]}: ${key[1]}`)
+// }
+
+// 2.1
+
+// const entries = [
+//   ["name", "Иван"],
+//   ["age", 30],
+//   ["city", "СПБ"]
+// ];
+
+
+// const objectFromEntries = Object.fromEntries(entries)
+
+// console.log(objectFromEntries)
+
+// 2.2
+
+// const car = {
+//   brand: "Toyota",
+//   model: "Camry",
+//   year: 2020
+// };
+
+// const arrayFromObject = Object.entries(car)
+// console.log(arrayFromObject)
+
+// const objectFromArray = Object.fromEntries(arrayFromObject)
+// console.log(objectFromArray)
 
 // 3.1
 
-// const items = ["книга", "ручка", "карандаш", "ручка", "ластик"];
+// const userMap = new Map()
 
-// console.log(items.indexOf('ручка'))
-// console.log(items.lastIndexOf('ручка'))
-// console.log(items.indexOf('тетрадь')) /* Вернет отрицательный индекс */
+// userMap.set('name', 'Ольга')
+// userMap.set('age', '28')
+// userMap.set('city', 'Казань')
+
+// console.log(userMap)
+// console.log(userMap.get('name'))
+
+// userMap.delete('city')
+// console.log(userMap)
+
+// console.log(userMap.size)
+
+// userMap.clear()
+// console.log(userMap)
 
 // 3.2
 
-// const scores = [10, 20, 30, 20, 40, 20];
+// const testMap = new Map()
 
-// console.log(scores.indexOf(20, 2))
+// testMap.set(1, 'один')
+// testMap.set({ id: 1 }, 'объект')
+// testMap.set([1, 2], 'массив')
+
+// console.log(testMap)
+
+// console.log(testMap.get(1))
+// console.log(testMap.get({ id: 1 }))
+
+// 3.3
+
+// const scores = new Map([
+//   ["Анна", 85],
+//   ["Иван", 92],
+//   ["Мария", 78]
+// ]);
+
+// for (const entry of scores.entries()) {
+//   console.log(entry)
+// }
+
+// for (const key of scores.keys()) {
+//   console.log(key)
+// }
+
+// for (const value of scores.values()) {
+//   console.log(value)
+// }
+
+// scores.forEach((key, value) => {
+//   return console.log(key, value)
+// })
+
+// // 3.4
+
+// const settings = {
+//   theme: "dark",
+//   language: "ru",
+//   notifications: true
+// };
+
+// const mapSetting = new Map(Object.entries(settings))
+
+// mapSetting.set('fonsize', 16)
+
+// console.log(Object.fromEntries(mapSetting))
 
 // 4.1
 
-// const users = [
-//   { id: 1, name: "Анна", age: 25 },
-//   { id: 2, name: "Иван", age: 30 },
-//   { id: 3, name: "Мария", age: 20 },
-//   { id: 4, name: "Петр", age: 30 }
-// ];
+// const newSet = new Set();
 
-// users.findIndex(({age}) => age === 30)
+// [1, 2, 3, 3, 4, 4, 5].forEach(element => newSet.add(element));
 
-// console.log(users.findIndex(({age}) => age === 30))
-// console.log(users.findLastIndex(({age}) => age === 30))
-// console.log(users.findIndex(({name}) => name === 'Ольга'))
+// console.log(newSet);
+
+// console.log(newSet.has(3))
+// console.log(newSet.has(10))
+
+// newSet.delete(2)
+
+// console.log(newSet);
+// console.log(newSet.size);
+
+// newSet.clear()
+// console.log(newSet);
+
+// 4.2
+
+// const numbers = [1, 2, 2, 3, 3, 4, 5, 5, 5];
+
+// const newSet = new Set(numbers)
+
+// const backToArray = Array.from(newSet)
+
+// console.log(backToArray)
+
+// 4.3
+
+// const colors = new Set(["красный", "зеленый", "синий"]);
+
+// for (const key of colors) {
+//   console.log(key)
+// }
+
+// colors.forEach( value => console.log(value))
+
+// console.log([...colors.values()]);
+// console.log([...colors.keys()]);
+// console.log(colors)
 
 // 5.1 
 
-// const tags = ["js", "html", "css"];
-
-// console.log(tags.includes('css'))
-// console.log(tags.includes('react'))
-
-// 5.2
-
-// const numbers = [3, 5, 7, 10, 12];
-
-// console.log(numbers.some((number) => number % 2 === 0))
-// console.log(numbers.some((number) => number > 15))
-
-// 5.3
-
-// const ages = [18, 21, 17, 25, 19];
-
-// console.log(ages.every((age) => age > 16))
-// console.log(ages.every((age) => age > 20))
-
-// 6.1
-
-// const users = [
-//   { id: 1, name: "Анна", age: 25 },
-//   { id: 2, name: "Иван", age: 30 },
-//   { id: 3, name: "Мария", age: 20 },
-//   { id: 4, name: "Петр", age: 30 }
-// ];
-
-
-// console.log(
-//   users.find(({age}) => age === 30)
-// )
-// console.log(
-//   users.find(({age}) => age === 40)
-// )
-
-// 6.2
-
-// const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-// console.log(
-//   nums.filter((num) => num % 2 === 0)
-// )
-// console.log(
-//   nums.filter((num) => num > 5)
-// )
-// console.log(
-//   nums.filter((num) => num % 3 === 0)
-// )
-
-// 7.1
-
-// const numbers = [1, 2, 3, 4, 5];
-
-// const newNumbers = numbers.map((number) => {
-//   return number**2
-// })
-
-// const newNumbers1 = numbers.map((number) => {
-//   return `Квадрат числа ${number} равен ${number**2}` 
-// })
-
-// console.log(newNumbers)
-// console.log(newNumbers1)
-
-// const users = [
-//   { id: 1, name: "Анна", age: 25 },
-//   { id: 2, name: "Иван", age: 30 },
-//   { id: 3, name: "Мария", age: 20 },
-//   { id: 4, name: "Петр", age: 30 }
-// ];
-
-// const newUserArray = users.map(({name}) => {
-//   return name
-// })
-
-// console.log(newUserArray)
-
-// 8.1 
-// const prices = [10, 20, 30, 40];
-
-// const pricesSum = prices.reduce( (accumulator, price) => {
-//   return accumulator += price
-// } , 0)
-
-// console.log(pricesSum)
-
-// 8.2 
-
-const orders = [
-    { product: "Книга", price: 500, count: 2 },
-    { product: "Ручка", price: 50, count: 5 },
-    { product: "Тетрадь", price: 100, count: 3 }
+const users = [
+  { id: 1, name: "Анна", age: 25, city: "Москва" },
+  { id: 2, name: "Иван", age: 30, city: "СПБ" },
+  { id: 3, name: "Мария", age: 20, city: "Казань" },
+  { id: 4, name: "Петр", age: 30, city: "Москва" }
 ];
 
-const ordersSum = orders.reduce( (accumulator, {price, count}) => {
-  return accumulator += price * count
-} , 0)
+const userMap = new Map();
 
-console.log(ordersSum)
+users.forEach(user => userMap.set(user.id, user))
 
-// 8.3 
+console.log(userMap)
 
-const letters = ["a", "b", "c", "d"];
+console.log(userMap.get(3))
 
-const newArray = letters.reduceRight( (accumulator, letter) => {
- return accumulator += letter
-}, '')
+userMap.set(5, { id: 5, name: "Ольга", age: 22, city: "Новосибирск"})
 
-console.log(newArray)
+console.log(userMap)
+
+const userCity = new Set()
+
+for (const [id, name] of userMap) {
+  userCity.add(name.city)
+}
+
+console.log(userCity)
+
+const cityCount = {};
+
+for (const [id, name] of userMap) {
+  cityCount[name.city] = (cityCount[name.city] || 0) + 1;
+}
+
+console.log(cityCount)
