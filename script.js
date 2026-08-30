@@ -1,138 +1,157 @@
 'use strict'
 
-// const fruits = ['яблоко', 'банан', 'апельсин']
+// // 2.1
+// const fruits = ["яблоко", "банан", "апельсин", "груша"];
 
-// console.log(fruits[0], fruits[1], fruits[2])
+// fruits.forEach((fruit, index) => console.log(`${index}: ${fruit}`))
 
-// fruits[1] = 'груша'
+// // 2.2
+// const nums = [10, 20, 30, 40];
 
-// console.log(fruits)
+// let sum = 0
 
-// const arr = []
+// nums.forEach((number) => { sum += number})
 
-// arr[5] = 'привет'
+// console.log(sum)
 
-// console.log(arr, arr.length)
+// 3.1
 
-// const numbers = [10, 20, 30, 40, 50];
+// const items = ["книга", "ручка", "карандаш", "ручка", "ластик"];
 
-// console.log(numbers.length)
-// console.log(numbers[numbers.length - 1])
-// console.log(numbers.at(-1))
+// console.log(items.indexOf('ручка'))
+// console.log(items.lastIndexOf('ручка'))
+// console.log(items.indexOf('тетрадь')) /* Вернет отрицательный индекс */
 
-// const stack = [1, 2, 3]
+// 3.2
 
-// stack.push(4)
-// stack.push(5)
-// const lastElement = stack.pop()
+// const scores = [10, 20, 30, 20, 40, 20];
 
-// console.log(lastElement)
-// console.log(stack)
+// console.log(scores.indexOf(20, 2))
 
+// 4.1
 
-// const queue = [10, 20, 30];
+// const users = [
+//   { id: 1, name: "Анна", age: 25 },
+//   { id: 2, name: "Иван", age: 30 },
+//   { id: 3, name: "Мария", age: 20 },
+//   { id: 4, name: "Петр", age: 30 }
+// ];
 
-// queue.unshift(5)
-// queue.unshift(0)
-// const lastElementofQueue = queue.shift()
+// users.findIndex(({age}) => age === 30)
 
-// console.log(lastElementofQueue)
-// console.log(queue)
+// console.log(users.findIndex(({age}) => age === 30))
+// console.log(users.findLastIndex(({age}) => age === 30))
+// console.log(users.findIndex(({name}) => name === 'Ольга'))
 
-// const letters = ['a', 'b'];
+// 5.1 
 
-// letters.push('c')
-// letters.unshift('z')
+// const tags = ["js", "html", "css"];
 
-// letters.pop()
-// letters.shift()
+// console.log(tags.includes('css'))
+// console.log(tags.includes('react'))
 
-// console.log(letters)
+// 5.2
 
-// const items = ["книга", "ручка", "карандаш"];
+// const numbers = [3, 5, 7, 10, 12];
 
-// console.log(items.toString())
-// console.log(items.join())
-// console.log(items.join(' | '))
+// console.log(numbers.some((number) => number % 2 === 0))
+// console.log(numbers.some((number) => number > 15))
 
-// const str = "Иван,Петр,Мария,Ольга";
+// 5.3
 
-// const stringToArray = str.split(',')
+// const ages = [18, 21, 17, 25, 19];
 
-// console.log(stringToArray)
+// console.log(ages.every((age) => age > 16))
+// console.log(ages.every((age) => age > 20))
 
-// const arrayToString = stringToArray.join(' / ')
+// 6.1
 
-// console.log(arrayToString)
-
-// const original = [1, 2, 3];
-
-// const copyArray = [...original]
-
-// copyArray[1] = 100
-
-// console.log(original)
-// console.log(copyArray)
-
-// const colors = ["красный", "зеленый", "синий", "желтый"];
-
-// const colorsCopy = colors.slice()
-// const colorsCopy1 = colors.slice(1, 3)
-// const colorsCopy2 = colors.slice(-2)
-
-// console.log(colors)
-// console.log(colorsCopy1)
-// console.log(colorsCopy2)
-
-// const arr1 = [1, 2, 3];
-// const arr2 = [4, 5, 6];
-
-// const newArray = [...arr1, ...arr2]
-
-// console.log(newArray)
-
-// const newArray1 = arr1.concat(arr2)
-
-// console.log(newArray1)
-
-// const fruits = ["яблоко", "банан"];
-
-// const newArray = fruits.concat('апельсин', 'груша')
-
-// console.log(newArray)
+// const users = [
+//   { id: 1, name: "Анна", age: 25 },
+//   { id: 2, name: "Иван", age: 30 },
+//   { id: 3, name: "Мария", age: 20 },
+//   { id: 4, name: "Петр", age: 30 }
+// ];
 
 
-// const arraysEqual = (arr1, arr2) => {
-//   if (arr1.length !== arr2.length) {
-//     return false
-//   }
+// console.log(
+//   users.find(({age}) => age === 30)
+// )
+// console.log(
+//   users.find(({age}) => age === 40)
+// )
 
-//   for (let i = 0; i < arr1.length; i++) {
-//     const value1 = arr1[i]
-//     const value2 = arr2[i]
+// 6.2
 
-//     if (value1 !== value2) {
-//       return false
-//     } else {
-//       continue
-//     }
-//   }
+// const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-//   return true
-// }
+// console.log(
+//   nums.filter((num) => num % 2 === 0)
+// )
+// console.log(
+//   nums.filter((num) => num > 5)
+// )
+// console.log(
+//   nums.filter((num) => num % 3 === 0)
+// )
 
-// const array = [1, 2, 3]
-// const array1 = [1, 2, 3]
-// const array2 = [1, 2, 4]
+// 7.1
 
-// console.log(arraysEqual(array, array1))
-// console.log(arraysEqual(array, array2))
+// const numbers = [1, 2, 3, 4, 5];
 
+// const newNumbers = numbers.map((number) => {
+//   return number**2
+// })
 
-console.log(Array.isArray([1, 2, 3]))
-console.log(Array.isArray({ name: "Тест" }))
-console.log(Array.isArray("строка"))
-console.log(Array.isArray(null))
-console.log(Array.isArray([]))
+// const newNumbers1 = numbers.map((number) => {
+//   return `Квадрат числа ${number} равен ${number**2}` 
+// })
 
-console.log(typeof [1, 2, 3])
+// console.log(newNumbers)
+// console.log(newNumbers1)
+
+// const users = [
+//   { id: 1, name: "Анна", age: 25 },
+//   { id: 2, name: "Иван", age: 30 },
+//   { id: 3, name: "Мария", age: 20 },
+//   { id: 4, name: "Петр", age: 30 }
+// ];
+
+// const newUserArray = users.map(({name}) => {
+//   return name
+// })
+
+// console.log(newUserArray)
+
+// 8.1 
+// const prices = [10, 20, 30, 40];
+
+// const pricesSum = prices.reduce( (accumulator, price) => {
+//   return accumulator += price
+// } , 0)
+
+// console.log(pricesSum)
+
+// 8.2 
+
+const orders = [
+    { product: "Книга", price: 500, count: 2 },
+    { product: "Ручка", price: 50, count: 5 },
+    { product: "Тетрадь", price: 100, count: 3 }
+];
+
+const ordersSum = orders.reduce( (accumulator, {price, count}) => {
+  return accumulator += price * count
+} , 0)
+
+console.log(ordersSum)
+
+// 8.3 
+
+const letters = ["a", "b", "c", "d"];
+
+const newArray = letters.reduceRight( (accumulator, letter) => {
+ return accumulator += letter
+}, '')
+
+console.log(newArray)
