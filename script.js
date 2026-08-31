@@ -1,223 +1,337 @@
 'use strict'
 
+
 // 1.1
+// class User {
+//   constructor(name, age) {
+//     this.name = name
+//     this.age = age
+//   }
 
-// const user = {
-//   name: "Анна",
-//   age: 25,
-//   city: "Москва",
-//   isAdmin: false
-// };
-
-// for (const key in user) {
-//   console.log(key)
+//   sayHello() {
+//     console.log(`Привет, меня зовут ${this.name}, мне ${this.age} лет`)
+//   }
 // }
 
-// for (const key in user) {
-//   console.log(user[key])
-// }
+// const user1 = new User('Анна', 25)
+// const user2 = new User('Иван', 30)
 
-// for (const key in user) {
-//   console.log(`${key}: ${user[key]}`)
-// }
+// user1.sayHello()
+// user2.sayHello()
 
 // 1.2
 
-// const user = {
-//   name: "Анна",
-//   age: 25,
-//   city: "Москва",
-//   isAdmin: false
-// };
+// class Book {
+//   isRead = false;
 
-// const userKeys = Object.keys(user)
-// const userValues = Object.values(user)
-// const userEntries = Object.entries(user)
+//   constructor(title, author) {
+//     this.title = title
+//     this.author = author
+//   }
 
+//   markAsRead() {
+//     this.isRead = true
+//   }
 
-// console.log(userKeys)
-// console.log(userValues)
-// console.log(userEntries)
-
-// // 1.3
-
-// for (const key of userEntries) {
-//   console.log(`${key[0]}: ${key[1]}`)
+//   getInfo() {
+//     return `Книга: ${this.title}, Автор: ${this.author}, Прочитана: ${this.isRead ? 'да' : 'нет'}`
+//   }
 // }
+
+// const user1 = new Book('Хроники заводной птицы', 'Харуки Мураками')
+
+// user1.markAsRead()
+
+// console.log(user1.getInfo())
 
 // 2.1
 
-// const entries = [
-//   ["name", "Иван"],
-//   ["age", 30],
-//   ["city", "СПБ"]
-// ];
+// class Person {
+//   _age
 
+//   constructor(name, age) {
+//     this.name = name
+//     this._age = age
+//   }
 
-// const objectFromEntries = Object.fromEntries(entries)
+//   get age() {
+//     return this._age
+//   }
+  
+//   get canVote() {
+//     return this._age >= 18 ? true : false;
+//   }
 
-// console.log(objectFromEntries)
+//   set age(value) {
+//     if (value < 0 || value > 120) {
+//       throw new Error("Некорректный возраст");
+//     } else {
+//       this._age = value;
+//     } 
+//   }
+// }
+
+// const user1 = new Person('Илья', 20)
+
+// console.log(user1.canVote)
+// console.log(user1.age)
+
+// const user2 = new Person('Маша', 16)
+
+// console.log(user2.canVote)
+// console.log(user2.age)
 
 // 2.2
 
-// const car = {
-//   brand: "Toyota",
-//   model: "Camry",
-//   year: 2020
-// };
+// const user3 = new Person('Илья')
 
-// const arrayFromObject = Object.entries(car)
-// console.log(arrayFromObject)
+// user3.age = -5
 
-// const objectFromArray = Object.fromEntries(arrayFromObject)
-// console.log(objectFromArray)
+// console.log(user3.age)
 
 // 3.1
 
-// const userMap = new Map()
+// class BankAccount {
+//   #balance = 0
+//   #owner
 
-// userMap.set('name', 'Ольга')
-// userMap.set('age', '28')
-// userMap.set('city', 'Казань')
+//   constructor(owner, balance) {
+//     this.#balance = balance
+//     this.#owner = owner
+//   }
 
-// console.log(userMap)
-// console.log(userMap.get('name'))
+//   deposit(amount) {
+//     if (this.#balance > 0) {
+//       this.#balance += amount
+//     } else {
+//       throw new Error("Ваш баланс меньше 0");
+//     }
+//   }
 
-// userMap.delete('city')
-// console.log(userMap)
+//   withdraw(amount) {
+//     if (this.#balance - amount > 0) {
+//       this.#balance -= amount
+//     } else {
+//       throw new Error("Ваш баланс не может стать меньше 0");
+//     }
+//   }
 
-// console.log(userMap.size)
+//   get balance() {
+//     return this.#balance
+//   }
 
-// userMap.clear()
-// console.log(userMap)
-
-// 3.2
-
-// const testMap = new Map()
-
-// testMap.set(1, 'один')
-// testMap.set({ id: 1 }, 'объект')
-// testMap.set([1, 2], 'массив')
-
-// console.log(testMap)
-
-// console.log(testMap.get(1))
-// console.log(testMap.get({ id: 1 }))
-
-// 3.3
-
-// const scores = new Map([
-//   ["Анна", 85],
-//   ["Иван", 92],
-//   ["Мария", 78]
-// ]);
-
-// for (const entry of scores.entries()) {
-//   console.log(entry)
+//   getOwner() {
+//     return this.#owner
+//   }
 // }
 
-// for (const key of scores.keys()) {
-//   console.log(key)
+// const user1 = new BankAccount('Илья', 80000)
+
+// console.log(user1.balance)
+// user1.deposit(10000)
+// console.log(user1.balance)
+// user1.withdraw(30000)
+// console.log(user1.balance)
+// console.log(user1.getOwner())
+
+
+// // 3.2
+
+// class Test {
+//   static _public = 'Публичный'
+//   #private = 'Приватный'
+
+//   showPrivate() {
+//     return this.#private
+//   }
 // }
 
-// for (const value of scores.values()) {
-//   console.log(value)
-// }
-
-// scores.forEach((key, value) => {
-//   return console.log(key, value)
-// })
-
-// // 3.4
-
-// const settings = {
-//   theme: "dark",
-//   language: "ru",
-//   notifications: true
-// };
-
-// const mapSetting = new Map(Object.entries(settings))
-
-// mapSetting.set('fonsize', 16)
-
-// console.log(Object.fromEntries(mapSetting))
+// console.log(Test._public)
+// // console.log(Test.#private)
+// Test._public = 'Новый_публичный'
+// // Test.#private = 'Новый_приватный'
 
 // 4.1
 
-// const newSet = new Set();
+// class MathHelper {
+//   static VERSION = '1.0'
 
-// [1, 2, 3, 3, 4, 4, 5].forEach(element => newSet.add(element));
+//   static sum(a, b) {
+//     return a + b
+//   }
 
-// console.log(newSet);
+//   static multiply(a, b) {
+//     return a * b
+//   }
+// }
 
-// console.log(newSet.has(3))
-// console.log(newSet.has(10))
-
-// newSet.delete(2)
-
-// console.log(newSet);
-// console.log(newSet.size);
-
-// newSet.clear()
-// console.log(newSet);
+// console.log(MathHelper.VERSION)
+// console.log(MathHelper.sum(5, 10))
+// console.log(MathHelper.multiply(5, 10))
 
 // 4.2
 
-// const numbers = [1, 2, 2, 3, 3, 4, 5, 5, 5];
+// class Product {
+//   static count = 0
 
-// const newSet = new Set(numbers)
+//   constructor(name) {
+//     this.name = name
+//     Product.count++;
+//   }
 
-// const backToArray = Array.from(newSet)
-
-// console.log(backToArray)
-
-// 4.3
-
-// const colors = new Set(["красный", "зеленый", "синий"]);
-
-// for (const key of colors) {
-//   console.log(key)
+//   static getCount() {
+//     return Product.count
+//   }
 // }
 
-// colors.forEach( value => console.log(value))
+// const user1 = new Product('лол')
+// const user2 = new Product('кек')
+// const user3 = new Product('чебурек')
 
-// console.log([...colors.values()]);
-// console.log([...colors.keys()]);
-// console.log(colors)
+// console.log(Product.getCount())
 
-// 5.1 
 
-const users = [
-  { id: 1, name: "Анна", age: 25, city: "Москва" },
-  { id: 2, name: "Иван", age: 30, city: "СПБ" },
-  { id: 3, name: "Мария", age: 20, city: "Казань" },
-  { id: 4, name: "Петр", age: 30, city: "Москва" }
-];
+// 5.1
 
-const userMap = new Map();
+// class Animal {
+//   constructor(name) {
+//     this.name = name
+//   }
 
-users.forEach(user => userMap.set(user.id, user))
+//   speak() {
+//     console.log(`${this.name} издает звук`)
+//   }
+// }
 
-console.log(userMap)
+// class Dog extends Animal {
+//   speak() {
+//     console.log(`${this.name} говорит: Гав!`)
+//   }
+// }
 
-console.log(userMap.get(3))
+// const animalJazz = new Dog('Бобик')
+// animalJazz.speak()
 
-userMap.set(5, { id: 5, name: "Ольга", age: 22, city: "Новосибирск"})
+// 5.2
 
-console.log(userMap)
+// class Vehicle {
+//   constructor(brand, year) {
+//     this.brand = brand
+//     this.year = year
+//   }
 
-const userCity = new Set()
+//   getInfo() {
+//     console.log(`Бренд: ${this.brand}, Год: ${this.year}`)
+//   }
+// }
 
-for (const [id, name] of userMap) {
-  userCity.add(name.city)
+// class Car extends Vehicle {
+//   constructor(brand, year, model) {
+//     super(brand, year)
+//     this.model = model
+//   }
+
+//   getInfo() {
+//     console.log(`Бренд: ${this.brand}, Модель: ${this.model}, Год: ${this.year}`)
+//   }
+// }
+
+// const personHave = new Car('Toyota', 2020, 'Camry')
+
+// personHave.getInfo()
+
+// 5.3
+
+// class Employe {
+//   constructor(name, salary) {
+//     this.name = name
+//     this.salary = salary
+//   }
+
+//   work() {
+//     console.log(`${this.name} работает`)
+//   }
+// }
+
+// class Manager extends Employe {
+//   constructor(name, salary, teamSize) {
+//     super (name, salary)
+//     this.teamSize = teamSize
+//   }
+
+//   work() {
+//     super.work()
+//     console.log(`${this.name} управляет командой из ${this.teamSize} человек`)
+//   }
+// }
+
+// const userFromYandex = new Manager('Илья', 120000, 10)
+
+// userFromYandex.work()
+
+// 6.1
+
+class User {
+  #id;
+  #name
+  #email
+
+  constructor(name, email) {
+    this.#name = name
+    this.#email = email
+    this.#id = ++User.userCount;
+  }
+
+  get id() {
+    return this.#id
+  }
+
+  get name() {
+    return this.#name
+  }
+
+  get email() {
+    return this.#email
+  }
+
+  getInfo(){
+    console.log(`ID: ${this.#id}, Имя: ${this.#name}, Email: ${this.#email}`)
+  }
+
+  static userCount = 0
+
+  static getUserInfo() {
+    console.log(`Всего пользователей: ${User.userCount}`);
+  }
 }
 
-console.log(userCity)
+class Admin extends User {
+  #role = 'admin'
 
-const cityCount = {};
+  getInfo() {
+    console.log(`ID: ${this.id}, Имя: ${this.name}, Email: ${this.email}, Роль: ${this.#role}`)
+  }
 
-for (const [id, name] of userMap) {
-  cityCount[name.city] = (cityCount[name.city] || 0) + 1;
+  manageUsers() {
+    console.log(`Администратор ${this.name} управляет пользователями`)
+  }
 }
 
-console.log(cityCount)
+class Guest extends User {
+  #role = 'guest'
+
+  getInfo() {
+    console.log(`ID: ${this.id}, Имя: ${this.name}, Email: ${this.email}, Роль: ${this.#role}`)
+  }
+
+  viewContent() {
+    console.log(`Гость ${this.name} просматривает контент`)
+  }
+}
+
+const person1 = new Admin('Илья', 'markovilia007@gmail.com')
+const person2 = new Guest('Дамир', 'damirahmetzyanov@gmail.com')
+
+person1.getInfo()
+person2.getInfo()
+User.getUserInfo()
