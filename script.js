@@ -1,68 +1,99 @@
 'use strict'
 
-
 // 1.1
-// setTimeout( () => {
-//   console.log('Прошло 2 сек')
-// }, 2000)
+// try {
+//   console.log(unknownVar)
+// }
+// catch(error) {
+//   console.log(`Произошла ошибка: ${error}`)
+// }
 
 // 1.2
 
-// function greet(name) {
-//   console.log(`Привет, ${name}`)
+// function divide(a, b) {
+//   if (b === 0) {
+//     throw new Error('Деление на ноль')
+//   } 
+//   return a / b
 // }
 
-// setTimeout(greet, 1500, 'Анна')
-
-// 1.3 Сначала выведутся все консоль логи, так как в сеттаймаут если даже указать 0мс, то она будет вызвана через 4мс, что дольше, чем консоль логи
+// try {
+//   divide(10, 0)
+// } catch(error) {
+//   console.log(`Возникла ошибка ${error}`)
+// }
 
 // 2.1
 
-// const cancelTimeout = setTimeout(() => {
-//   console.log("Это сообщение не должно появиться")
-// }, 3000)
-
-
-// clearTimeout(cancelTimeout)
-
-// 2.2
-
-// const shouldCancel = true
-
-// if (!shouldCancel) {
-//   setTimeout(() => {
-//     console.log("Таймер сработал")
-//   }, 5000)
+// try {
+//   eval("console.log('Привет'); // незакрытая строка");
+// } catch (error) {
+//   console.log("Ошибка поймана");
 // }
 
-// 3.1
+// я не вижу здесь ошибок, так-то строка закрыта в консоль логе все корректно
 
-// setInterval(() => {
-//   console.log(new Date().toLocaleTimeString())
-// }, 1000)
+// 3.1 и 3.2
 
-// 3.2
-
-// let count = 0
-
-// const intervalID = setInterval(() => {
-//   count++;
-//   console.log(count)
-//   if (count === 5) {
-//     clearInterval(intervalID)
+// setTimeout(() => {
+//   try {
+//     throw new Error("Ошибка в таймере");
+//   } catch (error) {
+//     console.log("Ошибка поймана:", error.message);
 //   }
-// }, 1000)
+// }, 1000);
+
+// Ошибка ловится только в том случае, если констукций трай кетч находится внутри асинхронного кода. Здесь я перенес конструкцию внутрь и все заработало
+
+// 4.1
+
+// try {
+//   JSON.parse('{ некорректный JSON }')
+// } catch(error) {
+//   console.log('error.name', error.name)
+//   console.log('error.message', error.message)
+//   console.log('error.stack',error.stack)
+// }
 
 // 4.2
 
-let count = 0
+// function parseJSON(str) {
+//   try {
+//     return JSON.parse(str)
+//   } catch (error) {
+//     console.log(error.name)
+//     console.log(error.message)
+//     return null
+//   }
+// }
 
-const timeoutID = setTimeout(function Counting() {
-  count++;
-  console.log(count)
-  if (count === 5) {
-    clearTimeout(timeoutID)
-  } else {
-    setTimeout(Counting, 1000)
-  }
-}, 1000)
+// // console.log(parseJSON('{"name":"Анна"}'))
+// console.log(parseJSON('{name: "Анна"}'))
+
+// 5.1
+
+// function checkAge(age) {
+//   if (age < 0) {
+//     throw new Error('Возраст не может быть отрицательным')
+//   }
+//   else if (age > 120) {
+//     throw new Error('Возраст не может быть больше 120')
+//   }
+//   return 'Возраст корректен'
+// }
+
+// try {
+//   checkAge(130)
+// } catch (error) {
+//   console.log(error)
+// }
+
+// 6.1
+
+try {
+  console.log(asdasdasd)
+} catch(error) {
+  console.log(error)
+} finally {
+  console.log('Закрываем файл')
+}
